@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "08",
+      "name": "Arpan",
+      "age": 21,
+      "companyId": "3"
+    },
+    {
+      "id": "02",
+      "name": "Sridhar",
+      "age": 24,
+      "companyId": "2"
+    },
+    {
+      "id": "13",
+      "name": "Neel",
+      "age": 25,
+      "companyId": "2"
+    },
+    {
+      "id": "015",
+      "name": "Swarnava",
+      "age": 28,
+      "companyId": "1"
+    },
+    {
+      "id": "03",
+      "name": "Sayan",
+      "age": 20,
+      "companyId": "1"
+    },
+    {
+      "name": "Shreyashi",
+      "age": 23,
+      "id": "yPFaqun"
+    },
+    {
+      "id": "21",
+      "age": 10,
+      "name": "Mrinal Kanti",
+      "companyId": "3"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "Apple",
+      "description": "iPhone"
+    },
+    {
+      "id": "2",
+      "name": "Google",
+      "description": "search"
+    },
+    {
+      "id": "3",
+      "name": "OnePlus",
+      "description": "oxygenOS"
+    }
+  ]
+}
