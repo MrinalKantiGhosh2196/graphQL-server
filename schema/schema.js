@@ -19,7 +19,7 @@ const CompanyType = new GraphQLObjectType({
         users : {
             type : new GraphQLList(UserType),
             resolve(parentType, args) {
-                return axios.get(`http://localhost:3000/companies/${parentType.id}/users`)
+                return axios.get(`https://usercompanyudemy.mrinalghosh.now.sh/companies/${parentType.id}/users`)
                     .then(resp => resp.data);
             }
         }
@@ -35,7 +35,7 @@ const UserType = new GraphQLObjectType({
         companyId : {
             type : CompanyType,
             resolve(parentValue, args) {
-                return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
+                return axios.get(`https://usercompanyudemy.mrinalghosh.now.sh/companies/${parentValue.companyId}`)
                     .then(resp => resp.data);
             }
         }
@@ -50,7 +50,7 @@ const RootQuery = new GraphQLObjectType(
                 type : UserType,
                 args : { id : { type : GraphQLString } },
                 resolve(parentValue, args) {
-                    return axios.get(`http://localhost:3000/users/${args.id}`)
+                    return axios.get(`https://usercompanyudemy.mrinalghosh.now.sh/users/${args.id}`)
                         .then(resp => resp.data);
                 }
             },
@@ -58,7 +58,7 @@ const RootQuery = new GraphQLObjectType(
                 type : CompanyType,
                 args : {id : {type : GraphQLString}},
                 resolve(parentValue, args) {
-                    return axios.get(`http://localhost:3000/companies/${args.id}`)
+                    return axios.get(`https://usercompanyudemy.mrinalghosh.now.sh/companies/${args.id}`)
                         .then(resp => resp.data);
                 }
             }
@@ -78,7 +78,7 @@ const mutation = new GraphQLObjectType({
                 companyId : {type : GraphQLString}
             },
             resolve(parentValue, {id, name, age, companyId}){
-                return axios.post('http://localhost:3000/users', {id, name, age, companyId})
+                return axios.post('https://usercompanyudemy.mrinalghosh.now.sh/users', {id, name, age, companyId})
                     .then(resp => resp.data);
             }
         },
@@ -88,10 +88,10 @@ const mutation = new GraphQLObjectType({
                 id : {type : new GraphQLNonNull(GraphQLString)}
             },
             async resolve(parentValue, {id}) {
-                var userToBeDelete = await axios.get(`http://localhost:3000/users/${id}`)
+                var userToBeDelete = await axios.get(`https://usercompanyudemy.mrinalghosh.now.sh/users/${id}`)
                     .then(res => res.data);
                 console.log(userToBeDelete);
-                return await axios.delete(`http://localhost:3000/users/${id}`).then(()=>userToBeDelete);
+                return await axios.delete(`https://usercompanyudemy.mrinalghosh.now.sh/users/${id}`).then(()=>userToBeDelete);
             }
         },
         updateUser : {
@@ -103,7 +103,7 @@ const mutation = new GraphQLObjectType({
                 companyId : {type : GraphQLString}
             },
             resolve(parentValue, args) {
-                return axios.patch(`http://localhost:3000/users/${args.id}`, args)
+                return axios.patch(`https://usercompanyudemy.mrinalghosh.now.sh/users/${args.id}`, args)
                     .then(res => res.data);
             }
         }

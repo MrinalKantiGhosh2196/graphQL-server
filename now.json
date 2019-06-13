@@ -1,12 +1,22 @@
 {
   "version": 2,
-  "builds": [
+
+"builds": [
     {
       "src": "server.js",
       "use": "@now/node-server"
-    }
+    },
+  {
+    "src": "jsonserver.js",
+    "use": "@now/node-server"
+  }
   ],
   "routes": [
+
+    {
+      "src": "/users/.*",
+      "dest": "jsonserver.js"
+    },
     {
       "src": "/.*",
       "dest": "server.js"
